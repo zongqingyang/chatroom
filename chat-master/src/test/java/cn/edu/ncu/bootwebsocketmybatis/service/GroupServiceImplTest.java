@@ -22,6 +22,7 @@ public class GroupServiceImplTest {
 
     @Autowired
     GroupServiceImpl groupService;
+
     @Test
     public void findAll() {
         System.out.println(groupService.findAll());
@@ -34,7 +35,7 @@ public class GroupServiceImplTest {
 
     @Test
     public void addGroup() {
-        Group group=new Group();
+        Group group = new Group();
         group.setName("闺蜜");
         System.out.println(groupService.addGroup(group));
     }

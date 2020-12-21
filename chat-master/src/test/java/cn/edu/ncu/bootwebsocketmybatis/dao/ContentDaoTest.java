@@ -24,6 +24,6 @@ public class ContentDaoTest {
     public void insertContentRecord() {
         Timestamp timestamp = new Timestamp(new Date().getTime());
 
-        contentService.insertContentRecord(new Content("126098","168648","onlineChat",timestamp.toString()));
+        contentService.insertContentRecord(new Content("126098", "168648", "onlineChat", timestamp.toString()));
     }
 }

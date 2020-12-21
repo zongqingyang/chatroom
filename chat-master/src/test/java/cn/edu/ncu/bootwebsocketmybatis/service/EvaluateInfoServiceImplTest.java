@@ -21,6 +21,7 @@ public class EvaluateInfoServiceImplTest {
 
     @Autowired
     EvaluateInfoServiceImpl evaluateInfoService;
+
     @Test
     public void findAll() {
         System.out.println(evaluateInfoService.findAll());
@@ -38,7 +39,7 @@ public class EvaluateInfoServiceImplTest {
 
     @Test
     public void addEvaluateInfo() {
-        EvaluateInfo evaluateInfo=new EvaluateInfo();
+        EvaluateInfo evaluateInfo = new EvaluateInfo();
         evaluateInfo.setContent("好看");
         System.out.println(evaluateInfoService.addEvaluateInfo(evaluateInfo));
     }
