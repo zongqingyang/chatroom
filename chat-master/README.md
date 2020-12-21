@@ -1,17 +1,8 @@
 # chat
 #springboot-webSocket-mybatis-mysql
-<<<<<<< HEAD
-
 # build
 idea开发
 
-嗯嗯嗯
-
-=======
-# build
-idea开发
-
->>>>>>> ff87dc8c0088e9af223d4add2f4887a96a32f2cd
 # Javaweb期末实验  在线聊天系统（90）
   实验成员六人
 
