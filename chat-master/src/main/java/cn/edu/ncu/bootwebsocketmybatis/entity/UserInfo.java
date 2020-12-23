@@ -6,8 +6,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/17  18:15
  * @package: cn.edu.ncu.bootwebsocketmybatis.entity
  * @project: boot-websocket-mybatis
  */

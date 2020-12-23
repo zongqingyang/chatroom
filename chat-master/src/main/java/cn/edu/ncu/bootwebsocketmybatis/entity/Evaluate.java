@@ -4,8 +4,6 @@ import java.math.BigInteger;
 import java.sql.Timestamp;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/17  19:52
  * @package: cn.edu.ncu.bootwebsocketmybatis.entity
  * @project: boot-websocket-mybatis
  */

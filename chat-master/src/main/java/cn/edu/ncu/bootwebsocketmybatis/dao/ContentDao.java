@@ -8,8 +8,6 @@ import java.math.BigInteger;
 import java.util.List;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/18  10:27
  * @package: cn.edu.ncu.bootwebsocketmybatis.dao
  * @project: boot-websocket-mybatis
  */
@@ -18,6 +16,7 @@ public interface ContentDao {
 
     /**
      * 查询from 与 to 的聊天记录
+     *
      * @param sendId
      * @param receiveId
      * @return
@@ -26,6 +25,7 @@ public interface ContentDao {
 
     /**
      * 将传入的消息实体插入到数据库当中
+     *
      * @param content
      */
     void insertContentRecord(Content content);

@@ -3,8 +3,6 @@ package cn.edu.ncu.bootwebsocketmybatis.entity;
 import java.util.List;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/18  9:06
  * @package: cn.edu.ncu.bootwebsocketmybatis.entity
  * @project: boot-websocket-mybatis
  */

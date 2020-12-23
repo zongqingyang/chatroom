@@ -5,14 +5,14 @@
 
 <mapper namespace="cn.edu.ncu.bootwebsocketmybatis.dao.ContentDao">
     <resultMap id="contentMap" type="Content">
-<!--        <id column="id" property="id"/>-->
+        <!--        <id column="id" property="id"/>-->
         <result column="sendId" jdbcType="VARCHAR" property="sendId"/>
         <result column="receiveId" jdbcType="VARCHAR" property="receiveId"/>
         <result column="content" property="content"/>
         <result column="createtime" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
 
-    <select id="getContentRecords" resultMap="contentMap" >
+    <select id="getContentRecords" resultMap="contentMap">
         select * from content
         where (sendId = #{sendId} and receiveId = #{receiveId}) or (sendId = #{receiveId} and receiveId =#{sendId})
     </select>

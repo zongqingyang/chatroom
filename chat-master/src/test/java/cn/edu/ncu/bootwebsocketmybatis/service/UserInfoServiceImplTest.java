@@ -24,6 +24,7 @@ public class UserInfoServiceImplTest {
 
     @Autowired
     UserInfoServiceImpl userInfoService;
+
     @Test
     public void findAll() {
         userInfoService.findAll();
@@ -37,14 +38,14 @@ public class UserInfoServiceImplTest {
 
     @Test
     public void addUserInfo() {
-        UserInfo userInfo=new UserInfo();
+        UserInfo userInfo = new UserInfo();
         userInfo.setUserId("100546");
         System.out.println(userInfoService.addUserInfo(userInfo));
     }
 
     @Test
     public void updateUserInfo() {
-        UserInfo userInfo=new UserInfo();
+        UserInfo userInfo = new UserInfo();
         userInfo.setUserId("100546");
         userInfo.setCountry("China");
         userInfoService.updateUserInfo(userInfo);

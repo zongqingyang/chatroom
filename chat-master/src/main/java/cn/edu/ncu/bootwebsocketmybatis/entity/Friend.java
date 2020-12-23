@@ -3,8 +3,6 @@ package cn.edu.ncu.bootwebsocketmybatis.entity;
 import java.math.BigInteger;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/18  9:07
  * @package: cn.edu.ncu.bootwebsocketmybatis.entity
  * @project: boot-websocket-mybatis
  */

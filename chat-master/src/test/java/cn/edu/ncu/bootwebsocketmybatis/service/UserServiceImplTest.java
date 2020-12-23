@@ -26,20 +26,22 @@ public class UserServiceImplTest {
 
     @Autowired
     UserServiceImpl userService;
+
     @Test
     public void findAll() {
         System.out.println(userService.findAll());
     }
 
     @Test
-    public void addUser(){
-        User user=new User();
+    public void addUser() {
+        User user = new User();
         user.setUserName("秋水");
         user.setPassword("123");
-         System.out.println(userService.addUser(user));
+        System.out.println(userService.addUser(user));
     }
+
     @Test
-    public void findById(){
+    public void findById() {
         logger.debug(userService.findById("121411").toString());
     }
 }

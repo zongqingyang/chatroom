@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/21  9:14
  * @package: cn.edu.ncu.bootwebsocketmybatis.controller
  * @project: boot-websocket-mybatis
  */
@@ -30,28 +28,29 @@ public class EvaluateController {
 
     /**
      * 添加好友评价
-     * @param id 被评价用户
-     * @param eva  评价内容
+     *
+     * @param id  被评价用户
+     * @param eva 评价内容
      */
     @PostMapping("/add")
-    public void addEvaluate(String id,String eva){
-        EvaluateInfo evaluateInfo=evaluateInfoService.findByContent(eva);
+    public void addEvaluate(String id, String eva) {
+        EvaluateInfo evaluateInfo = evaluateInfoService.findByContent(eva);
         Evaluate evaluate1;
-        if (evaluateInfo!=null){              //evaluateinfo中存在此评价内容
-            Evaluate evaluate=new Evaluate();
+        if (evaluateInfo != null) {              //evaluateinfo中存在此评价内容
+            Evaluate evaluate = new Evaluate();
             evaluate.setUserId(id);
             evaluate.setContent(eva);
             evaluate.setEvaluateInfoId(evaluateInfo.getId());
-            evaluate1=evaluateService.findByUserIdAndEvaId(evaluate);
-            if (evaluate1==null){            //evaluate中不存在此评价
+            evaluate1 = evaluateService.findByUserIdAndEvaId(evaluate);
+            if (evaluate1 == null) {            //evaluate中不存在此评价
                 evaluateService.addByUserId(evaluate);
             }
-        }else {                              //evaluateinfo中不存在此评价内容
-            evaluateInfo=new EvaluateInfo();
+        } else {                              //evaluateinfo中不存在此评价内容
+            evaluateInfo = new EvaluateInfo();
             evaluateInfo.setContent(eva);
             evaluateInfoService.addEvaluateInfo(evaluateInfo); //evaluateinfo中插入此评价内容
-            evaluateInfo=evaluateInfoService.findByContent(eva);
-            evaluate1=new Evaluate();
+            evaluateInfo = evaluateInfoService.findByContent(eva);
+            evaluate1 = new Evaluate();
             evaluate1.setUserId(id);
             evaluate1.setEvaluateInfoId(evaluateInfo.getId());
             evaluateService.addByUserId(evaluate1);          //evaluate中插入在此评价
@@ -60,11 +59,12 @@ public class EvaluateController {
 
     /**
      * 获取用户的好友评价
+     *
      * @param id
      * @return
      */
     @GetMapping("/get")
-    public List<Evaluate> getEvaluate(String id){
+    public List<Evaluate> getEvaluate(String id) {
         return evaluateService.findAllByUserId(id);
     }
 }

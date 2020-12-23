@@ -15,13 +15,13 @@
     </select>
 
 
-    <select id="findById"  resultMap="evaluateInfoMap" parameterType="INTEGER">
-         select id,content
+    <select id="findById" resultMap="evaluateInfoMap" parameterType="INTEGER">
+        select id,content
         from evaluateinfo
         where id=#{id}
     </select>
 
-    <select id="findByContent" resultMap="evaluateInfoMap" >
+    <select id="findByContent" resultMap="evaluateInfoMap">
         select id,content
         from evaluateinfo
         where content=#{content,jdbcType=VARCHAR}
@@ -30,7 +30,6 @@
     <insert id="addEvaluateInfo" useGeneratedKeys="true" keyProperty="id" parameterType="EvaluateInfo">
         insert into evaluateInfo(content) value (#{content,jdbcType=VARCHAR})
     </insert>
-
 
 
 </mapper>

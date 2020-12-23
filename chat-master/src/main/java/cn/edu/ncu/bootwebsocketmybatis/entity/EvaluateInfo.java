@@ -1,8 +1,6 @@
 package cn.edu.ncu.bootwebsocketmybatis.entity;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/17  20:20
  * @package: cn.edu.ncu.bootwebsocketmybatis.entity
  * @project: boot-websocket-mybatis
  */

@@ -27,6 +27,7 @@ public class EvaluateServiceImplTest {
 
     @Autowired
     EvaluateServiceImpl evaluateService;
+
     @Test
     public void findAllByUserId() {
         System.out.println(evaluateService.findAllByUserId("100546"));
@@ -34,17 +35,18 @@ public class EvaluateServiceImplTest {
 
     @Test
     public void addByUserId() {
-        Evaluate evaluate=new Evaluate();
+        Evaluate evaluate = new Evaluate();
         evaluate.setUserId("164142");
         evaluate.setEvaluateInfoId(2);
         evaluateService.addByUserId(evaluate);
     }
+
     @Test
-    public void find(){
-        Evaluate evaluate=new Evaluate();
+    public void find() {
+        Evaluate evaluate = new Evaluate();
         evaluate.setUserId("113618");
         evaluate.setEvaluateInfoId(6);
-        logger.debug("as",evaluateService.findByUserIdAndEvaId(evaluate));
+        logger.debug("as", evaluateService.findByUserIdAndEvaId(evaluate));
         System.out.println(evaluateService.findByUserIdAndEvaId(evaluate));
     }
 }

@@ -449,8 +449,8 @@ function init() {
                         document.getElementById("historyTable").innerHTML += '<tr class="name_time"><td><span style="color: green">'+receiveName+'&nbsp;&nbsp;&nbsp;'+time+'</span></td></tr>';
                     document.getElementById("historyTable").innerHTML += '<tr class="message"><td><span>'+content+'</span></td></tr>';
                 }
-                alert(path);
-                alert(ev.split(" ")[1])
+                // alert(path);
+                // alert(ev.split(" ")[1])
                 $("#download").attr({
                     "href":path,
                     "download":ev.split(" ")[1]

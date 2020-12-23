@@ -23,6 +23,7 @@ public class FriendServiceImplTest {
 
     @Autowired
     FriendServiceImpl friendService;
+
     @Test
     public void findAllByUserId() {
         System.out.println(friendService.findAllByUserId("113618"));
@@ -31,36 +32,36 @@ public class FriendServiceImplTest {
     @Test
     public void findByUserId() {
 
-        String s="TYRTY";
-     //   if (s.contains("T"))
-            s.replaceAll("T"," ");
+        String s = "TYRTY";
+        //   if (s.contains("T"))
+        s.replaceAll("T", " ");
         System.out.println(s);
     }
 
     @Test
     public void addFriendByUserId() {
-        Friend friend=new Friend("176701","113618",1);
+        Friend friend = new Friend("176701", "113618", 1);
         friend.setStatus("test");
         friendService.addFriendByUserId(friend);
     }
 
     @Test
     public void updateFriendByUserId() {
-        Friend friend=new Friend("176701","113618",1);
+        Friend friend = new Friend("176701", "113618", 1);
         friend.setStatus("TYIGI");
         friendService.updateFriendByUserId(friend);
     }
 
     @Test
     public void deleteFriendByUserId() {
-        Friend friend=new Friend("176701","113618");
+        Friend friend = new Friend("176701", "113618");
         friendService.deleteFriendByUserId(friend);
 
     }
 
     @Test
-    public void findStatus(){
-        System.out.println(friendService.findAllByUserIdAndStatus("113618","SR"));
+    public void findStatus() {
+        System.out.println(friendService.findAllByUserIdAndStatus("113618", "SR"));
     }
 }
 

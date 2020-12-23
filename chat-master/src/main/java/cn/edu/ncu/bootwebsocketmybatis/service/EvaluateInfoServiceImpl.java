@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @auther: Liu Zedi.
- * @date: Create in 2018/12/17  21:32
  * @package: cn.edu.ncu.bootwebsocketmybatis.service
  * @project: boot-websocket-mybatis
  */
@@ -22,6 +20,7 @@ public class EvaluateInfoServiceImpl implements EvaluateInfoService {
 
     /**
      * 查询所有的评价
+     *
      * @return
      */
     @Override
@@ -31,6 +30,7 @@ public class EvaluateInfoServiceImpl implements EvaluateInfoService {
 
     /**
      * 根据EvaluateInfo表id来查询评价
+     *
      * @param id
      * @return
      */
@@ -41,6 +41,7 @@ public class EvaluateInfoServiceImpl implements EvaluateInfoService {
 
     /**
      * 根据EvaluateInfo表content：评价内容 来查询评价
+     *
      * @param content
      * @return
      */
@@ -51,13 +52,14 @@ public class EvaluateInfoServiceImpl implements EvaluateInfoService {
 
     /**
      * 添加评价信息
+     *
      * @param evaluateInfo
      * @return
      */
     @Override
     public boolean addEvaluateInfo(EvaluateInfo evaluateInfo) {
 
-        if (evaluateInfoDao.findByContent(evaluateInfo.getContent())==null&&evaluateInfoDao.addEvaluateInfo(evaluateInfo)>0){
+        if (evaluateInfoDao.findByContent(evaluateInfo.getContent()) == null && evaluateInfoDao.addEvaluateInfo(evaluateInfo) > 0) {
             return true;
         }
         return false;

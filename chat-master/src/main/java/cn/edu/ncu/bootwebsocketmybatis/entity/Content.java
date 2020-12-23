@@ -10,29 +10,30 @@ import java.math.BigInteger;
  */
 public class Content {
 
-   // private BigInteger id;
-   private String sendId;  //发送者ID
-   private String receiveId;    //接收者ID
-   private String content;  //消息
-   private String createTime;  //发送时间
+    // private BigInteger id;
+    private String sendId;  //发送者ID
+    private String receiveId;    //接收者ID
+    private String content;  //消息
+    private String createTime;  //发送时间
 
-    public Content(){}
+    public Content() {
+    }
 
-    public Content(String sendId,String receiveId,String content,String createTime){
+    public Content(String sendId, String receiveId, String content, String createTime) {
         this.sendId = sendId;
         this.receiveId = receiveId;
         this.content = content;
         this.createTime = createTime;
     }
 
-   /* public BigInteger getId() {
-        return id;
-    }
+    /* public BigInteger getId() {
+         return id;
+     }
 
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-*/
+     public void setId(BigInteger id) {
+         this.id = id;
+     }
+ */
     public String getSendId() {
         return sendId;
     }
@@ -67,6 +68,7 @@ public class Content {
 
     /**
      * 将消息转化给JSON数据发送给客户端
+     *
      * @param sendId
      * @param receiveId
      * @param content
@@ -74,8 +76,8 @@ public class Content {
      * @return
      */
     @Bean
-    public static String jsonStr(String sendId,String receiveId,String content,String createTime){
-        Content message = new Content(sendId,receiveId,content,createTime);
+    public static String jsonStr(String sendId, String receiveId, String content, String createTime) {
+        Content message = new Content(sendId, receiveId, content, createTime);
         return JSON.toJSONString(message);
     }
 
