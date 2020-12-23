@@ -16,9 +16,7 @@ public interface GroupDao {
 
 
     List<Group> findAll();
-
     Group findByContent(String name);
-
     int addGroup(Group group);
 
 }

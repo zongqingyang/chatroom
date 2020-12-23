@@ -36,25 +36,23 @@ public class UserInfoController {
 
     /**
      * 返回用户信息
-     *
      * @param userId
      * @param friendId
      * @return
      */
     @PostMapping("/get")
-    public UserInfo getUserInfo(String userId, String friendId) {
+    public UserInfo getUserInfo(String userId,String friendId){
 
-        UserInfo userInfo = userInfoService.findByUserId(friendId);
+        UserInfo userInfo=userInfoService.findByUserId(friendId);
         if (!userId.equals(friendId))                 //在返回好友信息时，userId，friendId用于查询groupName
-            userInfo.setGroupName(friendService.findByUserId(new Friend(userId, friendId)).getGroupName());
+            userInfo.setGroupName(friendService.findByUserId(new Friend(userId,friendId)).getGroupName());
 
         userInfo.setEvaluates(evaluateService.findAllByUserId(friendId));
-        return userInfo;
+       return userInfo;
     }
 
     /**
      * 更新用户信息
-     *
      * @param userId
      * @param sex
      * @param birthday
@@ -66,14 +64,14 @@ public class UserInfoController {
      * @return
      */
     @PostMapping("/update")
-    public String update(String userId, String sex, Long birthday, String phone, String email, String country, String city, String userName) {
+    public String update(String userId, String sex, Long birthday,String phone,String email,String country,String city,String userName){
 
-        Date date = new Date(birthday);
-        Timestamp timestamp = new Timestamp(birthday);
-        UserInfo userInfo = new UserInfo(userId, "", sex, timestamp, phone, email, country, city, userName);
-        User user = new User(userId, userName, "");
-        if (userInfoService.updateUserInfoNoImage(userInfo) && userService.updateUserName(user))
-            return "成功";
-        return "失败";
-    }
+    Date date=new Date(birthday);
+    Timestamp timestamp=new Timestamp(birthday);
+    UserInfo userInfo=new UserInfo(userId,"",sex,timestamp,phone,email,country,city,userName);
+    User user=new User(userId,userName,"");
+    if (userInfoService.updateUserInfoNoImage(userInfo)&&userService.updateUserName(user))
+        return "成功";
+    return "失败";
+}
 }

@@ -21,7 +21,6 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 查询所有的分组
-     *
      * @return
      */
     @Override
@@ -31,7 +30,6 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 根据分组名查询分组
-     *
      * @param name
      * @return
      */
@@ -42,14 +40,13 @@ public class GroupServiceImpl implements GroupService {
 
     /**
      * 添加分组
-     *
      * @param group
      * @return
      */
     @Override
     public boolean addGroup(Group group) {
 
-        if (groupDao.findByContent(group.getName()) == null && groupDao.addGroup(group) > 0)
+        if (groupDao.findByContent(group.getName())==null&&groupDao.addGroup(group)>0)
             return true;
         return false;
     }

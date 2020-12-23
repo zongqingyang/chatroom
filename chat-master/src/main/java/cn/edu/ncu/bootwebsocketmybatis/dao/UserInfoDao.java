@@ -15,12 +15,8 @@ import java.util.List;
 public interface UserInfoDao {
 
     List<UserInfo> findAll();
-
     UserInfo findByUserId(String id);
-
     int addUserInfo(UserInfo userInfo);
-
     int updateUserInfo(UserInfo userInfo);
-
     int updateUserInfoNoImage(UserInfo userInfo);
 }

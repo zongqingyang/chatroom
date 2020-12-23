@@ -21,7 +21,6 @@ public class EvaluateServiceImpl implements EvaluateService {
 
     /**
      * 查询指定用户id的好友印象
-     *
      * @param userId
      * @return
      */
@@ -32,20 +31,18 @@ public class EvaluateServiceImpl implements EvaluateService {
 
     /**
      * 添加指定用户id的好友印象
-     *
      * @param evaluate
      * @return
      */
     @Override
     public boolean addByUserId(Evaluate evaluate) {
-        if (evaluateDao.addByUserId(evaluate) > 0)
+        if (evaluateDao.addByUserId(evaluate)>0)
             return true;
         return false;
     }
 
     /**
      * 根据userId和evaluateInfoId来查询指定用户id的好友印象
-     *
      * @param evaluate
      * @return
      */

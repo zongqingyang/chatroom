@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ContentServiceTest {
@@ -24,19 +23,19 @@ public class ContentServiceTest {
 
     @Test
     public void getContentRecords() {
-        List<Content> list = contentService.getContentRecords("113618", "121411");
-        for (Content content : list) {
+        List<Content> list = contentService.getContentRecords("113618","121411");
+        for (Content content:list){
             String sendId = content.getSendId();
-            String receiveId = content.getReceiveId();
+            String receiveId =content.getReceiveId();
             String msg = content.getContent();
             String createTime = content.getCreateTime();
-            logger.debug(sendId + " " + receiveId + " " + msg + " " + createTime);
+            logger.debug(sendId +" " + receiveId +" " +msg +" " + createTime);
         }
     }
 
     @Test
     public void insertContentRecord() {
-        Content content = new Content("126098", "168648", "a", "2018-12-11 09:27:52.481");
+        Content content = new Content("126098","168648","a","2018-12-11 09:27:52.481");
         contentService.insertContentRecord(content);
     }
 }

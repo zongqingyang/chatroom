@@ -13,10 +13,7 @@ import java.util.List;
 public interface EvaluateInfoService {
 
     List<EvaluateInfo> findAll();
-
     EvaluateInfo findById(Integer id);
-
     boolean addEvaluateInfo(EvaluateInfo evaluateInfo);
-
     EvaluateInfo findByContent(String content);
 }

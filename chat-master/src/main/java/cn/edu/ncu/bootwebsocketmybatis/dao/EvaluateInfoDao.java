@@ -15,10 +15,7 @@ import java.util.List;
 public interface EvaluateInfoDao {
 
     List<EvaluateInfo> findAll();
-
     EvaluateInfo findById(Integer id);
-
     EvaluateInfo findByContent(String content);
-
     int addEvaluateInfo(EvaluateInfo evaluateInfo);
 }

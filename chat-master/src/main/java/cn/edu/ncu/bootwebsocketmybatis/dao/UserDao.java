@@ -15,19 +15,12 @@ import java.util.List;
 @Repository
 public interface UserDao {
 
-    List<User> findAll();
-
-    List<User> findByName(String userName);
-
-    List<User> findByIdOrName(@Param("id") String id, @Param("userName") String userName);
-
-    User findById(String id);
-
-    int addUser(User user);
-
-    int updateUser(User user);
-
-    int updateUserName(User user);
-
-    int updatePassword(User user);
+     List<User> findAll();
+     List<User> findByName(String userName);
+     List<User> findByIdOrName(@Param("id") String id, @Param("userName") String userName);
+     User findById(String id);
+     int addUser(User user);
+     int updateUser(User user);
+     int updateUserName(User user);
+     int updatePassword(User user);
 }
