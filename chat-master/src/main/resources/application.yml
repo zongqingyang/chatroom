@@ -1,16 +1,16 @@
 spring:
-  thymeleaf:
-    encoding: UTF-8
-    cache: false
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://8.136.3.120:3306/chatroom?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
-  mvc:
-    static-path-pattern: /**
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+   thymeleaf:
+     encoding: UTF-8
+     cache: false
+   datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     username: root
+     password: 123456
+     url: jdbc:mysql://8.136.3.120:3306/chatroom?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+   mvc:
+     static-path-pattern: /**
+   resources:
+     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
 
 web.upload-path: /onlineChat/upload/
 
@@ -20,5 +20,5 @@ mybatis:
 
 logging:
   level:
-    cn.edu.ncu.bootwebsocketmybatis: debug
+     cn.edu.ncu.bootwebsocketmybatis: debug
 

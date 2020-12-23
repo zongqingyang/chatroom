@@ -32,17 +32,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
-        <!-- <dependency>
-             <groupId>org.mybatis</groupId>
-             <artifactId>mybatis</artifactId>
-             <version>3.4.0</version>
-         </dependency>
- -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1-b07</version>
+       <!-- <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.0</version>
         </dependency>
+-->
+         <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <version>3.1-b07</version>
+       </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

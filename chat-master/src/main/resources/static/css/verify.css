@@ -60,7 +60,6 @@
 .sliderContainer_fail .sliderIcon {
     background-position: 0 -83px !important;
 }
-
 .sliderContainer_active .sliderText, .sliderContainer_success .sliderText, .sliderContainer_fail .sliderText {
     display: none;
 }
@@ -128,6 +127,5 @@
     line-height: 20px;
     padding: 0 5px;
     border-radius: 10px;
-    display: inline-block;
-/ / 肯定是inline-block，因为行内元素宽度auto呀
+    display: inline-block;//肯定是inline-block，因为行内元素宽度auto呀
 }

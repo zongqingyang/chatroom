@@ -21,7 +21,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     /**
      * 查询所有用户信息
-     *
      * @return
      */
     @Override
@@ -31,7 +30,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     /**
      * 根据用户id查询用户信息
-     *
      * @param id
      * @return
      */
@@ -42,42 +40,39 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     /**
      * 添加用户信息  默认image：static/img/dog.png sex：不详
-     *
      * @param userInfo
      * @return
      */
     @Override
     public boolean addUserInfo(UserInfo userInfo) {
 
-        if (userInfoDao.findByUserId(userInfo.getUserId()) == null && userInfoDao.addUserInfo(userInfo) > 0)   //添加的用户信息不存在 且插入成功
+        if (userInfoDao.findByUserId(userInfo.getUserId())==null&&userInfoDao.addUserInfo(userInfo)>0)   //添加的用户信息不存在 且插入成功
             return true;
         return false;
     }
 
     /**
      * 更新用户信息
-     *
      * @param userInfo
      * @return
      */
     @Override
     public boolean updateUserInfo(UserInfo userInfo) {
 
-        if (userInfoDao.updateUserInfo(userInfo) > 0)
+        if (userInfoDao.updateUserInfo(userInfo)>0)
             return true;
         return false;
     }
 
     /**
      * 更新用户信息  不更新头像
-     *
      * @param userInfo
      * @return
      */
     @Override
     public boolean updateUserInfoNoImage(UserInfo userInfo) {
 
-        if (userInfoDao.updateUserInfoNoImage(userInfo) > 0)
+        if (userInfoDao.updateUserInfoNoImage(userInfo)>0)
             return true;
         return false;
     }

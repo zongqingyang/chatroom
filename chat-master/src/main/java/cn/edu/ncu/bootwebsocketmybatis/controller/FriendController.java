@@ -32,60 +32,56 @@ public class FriendController {
 
     /**
      * 返回用户的所有好友
-     *
      * @param userId
      * @return
      */
     @PostMapping("/getAll")
-    public List<Friend> getAllFriendByUserId(String userId) {
+    public List<Friend> getAllFriendByUserId(String userId){
 
-        List<Friend> friendsAndUser = friendService.findAllByUserIdAndStatus(userId, "SR");
+        List<Friend> friendsAndUser=friendService.findAllByUserIdAndStatus(userId,"SR");
         return friendsAndUser;
     }
 
     @GetMapping("/get")
-    public Friend getFriendB(String userId, String friendId) {
-        Friend friend = new Friend(userId, friendId);
+    public Friend getFriendB(String userId,String friendId){
+        Friend friend=new Friend(userId,friendId);
         return friendService.findByUserId(friend);
     }
 
     /**
      * 获取发送添加请求的好友
-     *
      * @param userId
      * @return
      */
     @GetMapping("/getReceiveReq")
-    public List<Friend> getReceiveRequest(String userId) {
-        List<Friend> requestList = friendService.findAllByUserIdAndStatus(userId, "R");
-        return requestList;
+    public List<Friend> getReceiveRequest(String userId){
+        List<Friend> requestList=friendService.findAllByUserIdAndStatus(userId,"R");
+        return  requestList;
     }
 
     /**
      * 获取接受到好友添加请求，但还未响应的好友
-     *
      * @param userId
      * @return
      */
     @GetMapping("/getSendReq")
-    public List<Friend> getSendRequest(String userId) {
-        List<Friend> statusList = friendService.findAllByUserIdAndStatus(userId, "S");
+    public List<Friend> getSendRequest(String userId){
+        List<Friend> statusList=friendService.findAllByUserIdAndStatus(userId,"S");
         return statusList;
     }
 
 
     /**
      * 添加好友
-     *
      * @param userId
      * @param friendId
      * @param groupId
      * @return
      */
     @PostMapping("/add")
-    public String addFriend(String userId, String friendId, @RequestParam(value = "groupId", required = false) int groupId) {
+    public String addFriend(String userId, String friendId, @RequestParam(value = "groupId",required = false) int groupId){
 
-        System.out.println("userId:" + userId + "friendId:" + friendId);
+        System.out.println("userId:"+userId+"friendId:"+friendId);
         if (!userId.equals(friendId)) {
             if (userService.findById(friendId) != null) {        //添加的用户存在
                 if (groupId == 0)
@@ -110,15 +106,14 @@ public class FriendController {
 
     /**
      * 同意好友添加请求
-     *
      * @param userId
      * @param friendId
      * @return
      */
     @PostMapping("/agree")
-    public String agreeRequest(String userId, String friendId) {
+    public String agreeRequest(String userId,String friendId){
 
-        Friend friend = new Friend(userId, friendId);
+        Friend friend=new Friend(userId,friendId);
         friend.setStatus("SR");
         //因为好友关系是单向的，所有要改数据库两条记录
 
@@ -129,26 +124,24 @@ public class FriendController {
 
     /**
      * 返回所有分组
-     *
      * @return
      */
     @GetMapping("/getGroup")
-    public List<Group> getAllGroup() {
+    public List<Group> getAllGroup(){
         return groupService.findAll();
     }
 
     /**
      * 修改好友分组
-     *
      * @param userId
      * @param friendId
      * @param groupId
      * @return
      */
     @PostMapping("/updateGroup")
-    public String updateGroup(String userId, String friendId, int groupId) {
+    public String updateGroup(String userId,String friendId,int groupId){
 
-        Friend friend = new Friend(userId, friendId, groupId);
+        Friend friend=new Friend(userId,friendId,groupId);
         if (friendService.updateGroupByUserId(friend))
             return "分组更新成功";
         return "分组更新失败";
@@ -156,15 +149,14 @@ public class FriendController {
 
     /**
      * 删除好友关系
-     *
      * @param userId
      * @param friendId
      * @return
      */
     @PostMapping("/delete")
-    public String deleteFriend(String userId, String friendId) {
+    public String deleteFriend(String userId,String friendId){
 
-        Friend friend = new Friend(userId, friendId);
+        Friend friend=new Friend(userId,friendId);
         if (friendService.deleteFriendByUserId(friend))
             return "删除成功";
         return "删除失败";

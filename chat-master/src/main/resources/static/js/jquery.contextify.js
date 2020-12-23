@@ -2,17 +2,17 @@
 
 /*global define */
 
-;(function (factory) {
-    if (typeof define === "function" && define.amd) {
+;(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
 
-        // AMD. Register as an anonymous module.
-        define(["jquery"], factory);
-    } else {
+		// AMD. Register as an anonymous module.
+		define([ "jquery" ], factory );
+	} else {
 
-        // Browser globals
-        factory(jQuery, window);
-    }
-}(function ($, window) {
+		// Browser globals
+		factory( jQuery, window );
+	}
+}(function ( $, window ) {
 
     var pluginName = 'contextify',
         defaults = {
@@ -26,10 +26,10 @@
         },
         contextifyId = 0;
 
-    function Plugin(element, options) {
+    function Plugin( element, options ) {
         this.element = element;
 
-        this.options = $.extend({}, defaults, options);
+        this.options = $.extend( {}, defaults, options) ;
 
         this._defaults = defaults;
         this._name = pluginName;
@@ -38,7 +38,7 @@
     }
 
     Plugin.prototype.init = function () {
-        var options = $.extend({}, this.options, $(this.element).data());
+        var options = $.extend( {}, this.options, $(this.element).data());
         options.id = contextifyId;
 
         $(this.element)
@@ -47,7 +47,7 @@
                 e.preventDefault();
 
                 // run before
-                if (typeof (options.before) === 'function') {
+                if(typeof(options.before) === 'function') {
                     options.before(this, options);
                 }
 
@@ -64,10 +64,12 @@
 
                     if (item.divider) {
                         el.addClass(options.dividerClass);
-                    } else if (item.header) {
+                    }
+                    else if (item.header) {
                         el.addClass(options.headerClass);
                         el.html(item.header);
-                    } else {
+                    }
+                    else {
                         el.append('<a/>');
                         var a = el.find('a');
 
@@ -79,9 +81,9 @@
                             a.css('cursor', 'pointer');
                         }
                         if (item.data) {
-                            for (var data in item.data) {
-                                menu.attr('data-' + data, item.data[data]);
-                            }
+                        for (var data in item.data) {
+                            menu.attr('data-' + data, item.data[data]);
+                        }
                             a.data(item.data);
                         }
                         a.html(item.text);
@@ -93,10 +95,11 @@
                 var currentMenu = $("#" + options.menuId);
 
                 if (currentMenu.length > 0) {
-                    if (currentMenu !== menu) {
+                    if(currentMenu !== menu) {
                         currentMenu.replaceWith(menu);
                     }
-                } else {
+                }
+                else {
                     $('body').append(menu);
                 }
 
@@ -110,7 +113,7 @@
                     .css('position', 'fixed')
                     .show();
             })
-            .parents().on('mouseup', function () {
+        .parents().on('mouseup', function () {
             $("#" + options.menuId).hide();
         });
 
@@ -126,18 +129,19 @@
             .removeAttr('data-contextify-id')
             .off('contextmenu')
             .parents().off('mouseup', function () {
-            menu.hide();
-        });
+                menu.hide();
+            });
 
         menu.remove();
     };
 
-    $.fn[pluginName] = function (options) {
+    $.fn[pluginName] = function ( options ) {
         return this.each(function () {
-            if ($.data(this, 'plugin_' + pluginName) && Object.prototype.toString.call(options) === '[object String]') {
+            if( $.data(this, 'plugin_' + pluginName) && Object.prototype.toString.call(options) === '[object String]' ) {
                 $.data(this, 'plugin_' + pluginName)[options]();
-            } else if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+            }
+            else if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
             }
         });
     };

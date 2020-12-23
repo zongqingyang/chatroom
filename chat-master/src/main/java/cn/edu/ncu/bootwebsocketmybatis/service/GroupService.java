@@ -13,8 +13,6 @@ import java.util.List;
 public interface GroupService {
 
     List<Group> findAll();
-
     Group findByContent(String name);
-
     boolean addGroup(Group group);
 }

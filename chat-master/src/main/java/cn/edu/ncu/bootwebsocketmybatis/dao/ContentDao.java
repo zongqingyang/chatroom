@@ -18,7 +18,6 @@ public interface ContentDao {
 
     /**
      * 查询from 与 to 的聊天记录
-     *
      * @param sendId
      * @param receiveId
      * @return
@@ -27,7 +26,6 @@ public interface ContentDao {
 
     /**
      * 将传入的消息实体插入到数据库当中
-     *
      * @param content
      */
     void insertContentRecord(Content content);

@@ -7,13 +7,21 @@
     <title>用户登录注册界面</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="stylesheet" href="/css/verify.css">
-    <script src="/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="/css/verify.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <link rel="icon" href="../static/img/logo/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../static/img/logo/favicon.ico" type="image/x-icon">
+    <script src="/overflow-y:scrollquery-3.2.1.min.js"></script>
     <style>
         #msg {
             width: 100%;
             line-height: 40px;
             font-size: 14px;
             text-align: center;
+            position:absolute;
+            top:228px;
+            right:-165px;
         }
     </style>
 </head>
@@ -22,22 +30,23 @@
 <canvas id="demo-canvas"></canvas>
 <div class="login-wrap">
     <center>
-        <p id="homepage" style="margin-top: -530px;font-family: 华文彩云;color: white;font-size: 80px;">欢迎来到</p>
-        <p style="margin-top: 10px;font-family: 华文彩云;color: white;font-size: 80px;">SuperGod</p>
-        <p style="margin-top: 10px;font-family: 华文彩云;color: white;font-size: 80px;">聊天室</p>
+        <!--<p id="homepage" style="margin-top: -530px;font-family: 华文彩云;color: white;font-size: 80px;">欢迎来到</p>-->
+        <!--<p style="margin-top: 10px;font-family: 华文彩云;color: white;font-size: 80px;">Talk</p>-->
+        <!--<p  style="margin-top: 10px;font-family: 华文彩云;color: white;font-size: 80px;">聊天室</p>-->
     </center>
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">登录</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
-        <div class="login-form">
+    <div class="login-html" style="margin-top:-650px;margin-left:403px">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" id="login" class="tab">登录</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" id="register" class="tab">没有账号？点击注册</label>
+        <div class="login-form" style="width:400px;height:2px;background: rgba(0,0,0,0.3)">
             <form>
                 <div class="sign-in-htm">
                     <div class="group">
-                        <label for="userId" class="label">账号</label>
-                        <input id="userId" name="userId" type="search" th:value="${id}" class="input" required>
+                        <label for="userId" id="yourID" class="label">账号</label>
+                        <input id="userId" name="userId"  type="search" th:value="${id}" class="input" required>
                     </div>
                     <div class="group">
-                        <label for="password" class="label">密码</label>
+                        <label for="password" class="label" id="passwords">密码</label>
+                        <div id="blank"></div>
                         <input id="password" type="password" class="input" data-type="password" required>
                     </div>
                     <div class="group">
@@ -51,7 +60,7 @@
                         <label for="check"><span class="icon"></span> 保持登录</label>
                     </div>-->
                     <div class="group">
-                        <input type="button" class="button" value="登录" onClick="login()">
+                        <input type="button" id="toLogin" class="button" value="登录" onClick="login()">
                         <!-- <button  class="button">登录</button>-->
                     </div>
                     <!-- <div class="hr"></div>
@@ -63,27 +72,25 @@
             <form onsubmit="register()">
                 <div class="sign-up-htm">
                     <div class="group">
-                        <label for="username" class="label" required>用户名</label>
+                        <label for="username" id="name" class="label" required>用户名</label>
                         <input id="username" type="text" class="input" required>
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">密码</label>
+                        <label for="pass" id = "passwd" class="label">密码</label>
                         <input id="pass" type="password" class="input" data-type="password" required>
                     </div>
                     <div class="group">
-                        <label for="pass2" class="label">确认密码</label>
-                        <input id="pass2" type="password" class="input" data-type="password" onkeyup="textPwd()"
-                               required>
+                        <label for="pass2" id="informPasswd" class="label">确认密码</label>
+                        <input id="pass2" type="password" class="input" data-type="password" onkeyup="textPwd()" required>
                         <span id="mgs1"></span>
                     </div>
                     <div class="group">
-                        <!--<a href="register.html">-->
-                        <button id="submit" class="button">注册</button>
+                        <!--<a href="register.html">--><button id="submit" class="button">注册</button>
                         <!--<input type="button" id="submit" value="注册" class="button"/>--><!--</a>-->
                     </div>
                     <div class="hr"></div>
                     <div class="foot-lnk">
-                        <label for="tab-1"><a>已经成员?</a></label>
+                        <label for="tab-1"><a></a></label>
                     </div>
                 </div>
             </form>
@@ -96,14 +103,13 @@
     document.body.parentNode.style.overflow = "hidden";
 
     $(".login-html").hide();
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("p").click(function () {
             $("p").hide(2000);
             $(".login-html").fadeIn(2000);
         });
     });
-    var flag = false;
-
+    var flag=false;
     function httpPost(URL, PARAMS) {  //发送请求 POST
         var temp = document.createElement("form");
         temp.action = URL;
@@ -119,60 +125,57 @@
         temp.submit();
         return temp;
     }
-
-    function login() {         //登陆
-        var id = document.getElementById('userId').value;
-        var pass = document.getElementById('password').value;
-        if (flag == false) {
+    function login(){         //登陆
+        var id=document.getElementById('userId').value;
+        var pass=document.getElementById('password').value;
+        if(flag==false){
             alert("验证失败!");
             return;
         }
         var params = {
-            "userId": id,
-            "password": pass
+            "userId":id,
+            "password":pass
         };
-        httpPost("lo", params);
+        httpPost("lo",params);
 
     }
-
     jigsaw.init(document.getElementById('captcha'), function () {
-        flag = true;
+        flag=true;
         //document.getElementById('msg').innerHTML = '登录成功！';
-        document.getElementById('msg').innerHTML = "<font color='black'>验证成功！</font>"
+        document.getElementById('msg').innerHTML="<font color='black'>验证成功！</font>"
     });
-
-    function textPwd() {
-        var pwd02 = document.getElementById("pass");
-        var pwd01 = document.getElementById("pass2");
-        if (pwd01.value != pwd02.value) {
+    function textPwd(){
+        var pwd02=document.getElementById("pass");
+        var pwd01=document.getElementById("pass2");
+        if(pwd01.value!=pwd02.value) {
             document.getElementById("mgs1").innerHTML = "<font color='red'>两次密码不相同</font>";
             document.getElementById("submit").disabled = true;
-        } else {
+        }
+        else {
             document.getElementById("mgs1").innerHTML = null;
             document.getElementById("submit").disabled = false;
         }
     }
-
     function register() {    //注册
-        var name = document.getElementById('username').value;
-        var pass = document.getElementById('pass').value;
-        xmlHttp.open("POST", '/re', false);
+        var name=document.getElementById('username').value;
+        var pass=document.getElementById('pass').value;
+        xmlHttp.open("POST", '/re',false);
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4) {
                 if (xmlHttp.status == 200) {      //服务端响应成功
                     var data = xmlHttp.responseText;
-                    if (data === "失败")    //用户注册失败
+                    if (data==="失败")    //用户注册失败
                         window.alert("很抱歉，注册失败！请再次注册");
                     else {
                         window.alert("欢迎来到SuperGod聊天室，您的ID为：" + data);
                         window.location.href = "/register";
                     }
-                } else
+                }else
                     window.alert("很抱歉，注册失败！")
             }
         };
-        xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xmlHttp.send('username=' + name + '&password=' + pass);
+        xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xmlHttp.send('username='+name+'&password='+pass);
     }
 </script>
 <script src="/js/commons.js"></script>

@@ -10,7 +10,6 @@ function randomColor() {
     }
     return strHex;
 }
-
 function changeColor() {
     var links = document.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
@@ -18,7 +17,6 @@ function changeColor() {
         links[i].style.backgroundColor = links[i].style.borderColor = bgColor;
     }
 }
-
 function sayHi() {
     var scolor, links = document.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
@@ -34,7 +32,6 @@ function sayHi() {
         }
     }
 }
-
 function addEvaluation() {
     var txt = document.getElementById("input-txt");
     var btn = document.getElementById("input-btn");
@@ -50,7 +47,7 @@ function addEvaluation() {
     };
 
     btn.onclick = function () {
-        window.console.info("btn:" + btn.alt);
+        window.console.info("btn:"+btn.alt);
 
         if (txt.value == "") {
             alert("请输入一个印象词");
@@ -58,12 +55,12 @@ function addEvaluation() {
         }
 
         texts = document.createTextNode(txt.value);
-        var friendId = btn.alt;
-        var eva = txt.value;
+        var friendId=btn.alt;
+        var eva=txt.value;
         initAJAX();
         xmlHttp.open("POST", "/eva/add", true);
         xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xmlHttp.send("id=" + friendId + "&eva=" + eva);
+        xmlHttp.send("id=" + friendId+"&eva="+eva);
 
         links = document.createElement("a");
         spans = document.createElement("span");
@@ -73,10 +70,9 @@ function addEvaluation() {
         divs.appendChild(spans);
         sayHi();
         n = true;
-        txt.value = "";
+        txt.value="";
     }
 }
-
 changeColor();
 sayHi();
 addEvaluation();

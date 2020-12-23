@@ -15,6 +15,7 @@
         const canvas = createElement('canvas')
         canvas.width = width
         canvas.height = height
+
         return canvas
     }
 

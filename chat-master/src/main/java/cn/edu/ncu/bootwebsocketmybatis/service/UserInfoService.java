@@ -13,12 +13,8 @@ import java.util.List;
 public interface UserInfoService {
 
     List<UserInfo> findAll();
-
     UserInfo findByUserId(String id);
-
     boolean addUserInfo(UserInfo userInfo);
-
     boolean updateUserInfo(UserInfo userInfo);
-
     boolean updateUserInfoNoImage(UserInfo userInfo);
 }

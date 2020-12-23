@@ -30,37 +30,41 @@ public class UserController {
 
     /**
      * 根据 id 查询用户
-     *
      * @param id
      * @return
      */
     @GetMapping("/getId")
-    public User getUserById(String id) {
+    public User getUserById(String id){
         return userService.findById(id);
     }
 
     /**
      * 根据 username 查询用户
-     *
      * @param name
      * @return
      */
     @GetMapping("/getName")
-    public List<User> getUserByName(String name) {
+    public List<User> getUserByName(String name){
         return userService.findByName(name);
     }
 
     /**
      * 根据 userName 和 id 查询用户
-     *
      * @param id
      * @param name
      * @return
      */
     @GetMapping("/getIdOrName")
-    public List<User> getUserByIdOrName(String id, String name) {
+    public List<User> getUserByIdOrName(String id,String name){
         return userService.findByIdOrName(id, name);
     }
+
+
+
+
+
+
+
 
 
 }
